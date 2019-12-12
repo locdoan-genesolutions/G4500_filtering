@@ -1,0 +1,54 @@
+.. _G4500-seq-page:
+
+G4500-seq
+=======
+
+
+
+Pre-Quality Check :code:`fastqc`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input:  List of read files (`.fastq.gz`)
+:output: Report files (`.html`)
+:script: Uses `FastQC` to check quality of read files
+
+Read Trimming :code:`trim`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input:  List of read files (`.fastq.gz`)
+:output: Trimmed read files (`.fastq.gz`)
+:script: Trims low quality reads with `BBTools`. Note: assumes input file are gzipped
+
+Read Mapping :code:`align_bwa`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input:  List of read files (`.fastq`) | Genome annotation file (`.fa`) | Directory containing indexed reference genome files
+:output: A list of alignment files (`.sam`)
+:script: Uses `BWA` to align reads to a reference genome
+
+Sorting By Coordinate :code:`picard_SortSam`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input: A list of alignment files (`.sam`)
+:output: A list of sorted files (`.bam`)
+:script: Sorts the input SAM or BAM file by coordinate using Picard SortSam
+
+Locating, Taging Duplicate Reads :code:`picard_MarkDuplicates`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input: A list of sorted files (`.bam`)
+:output: A list of marked records and its indexes (`.bam, .bai`) | Log metric files (`.txt`)
+:script: Uses `picard MarkDuplicates` and `picard BuildBamIndex` to compare sequences of read-pairs in a SAM/BAM file
+
+Calling Small Variants :code:`strelka`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input: A list of marked records and its indexes (`.bam, .bai`)
+:output: A list of files containing primary variants  (`.vcf.gz`)
+:script: Reformats a list of count files into a `genes x samples` matrix
+
+Determining the effect of the variants :code:`vep`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input: A list of files containing primary variants (`.vcf.gz`)
+:output: A list of files containing  (`.txt`)
+:script: Uses `vep` to annotate the variants and determine the effect on relevant Ensembl transcripts and proteins 
+
+Seclecting the needed information by anh Duy :code:`vep_filter_using_R`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:input: 
+:output: 
+:script: 

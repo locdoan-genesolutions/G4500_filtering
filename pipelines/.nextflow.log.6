@@ -1,0 +1,154 @@
+Dec-12 00:07:46.625 [main] DEBUG nextflow.cli.Launcher - $> nextflow working.nf -c working.config
+Dec-12 00:07:46.855 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 19.10.0
+Dec-12 00:07:46.870 [main] INFO  nextflow.cli.CmdRun - Launching `working.nf` [furious_galileo] - revision: cf31926e68
+Dec-12 00:07:46.898 [main] DEBUG nextflow.config.ConfigBuilder - User config file: /Volumes/GSHD15/G4500_workflow/pipelines/working.config
+Dec-12 00:07:46.898 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Volumes/GSHD15/G4500_workflow/pipelines/working.config
+Dec-12 00:07:46.928 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Dec-12 00:07:47.666 [main] DEBUG nextflow.extension.OperatorEx - Dataflow extension methods: branch,buffer,chain,choice,collate,collect,collectFile,combine,concat,count,countBy,countFasta,countFastq,countLines,countText,cross,distinct,filter,first,flatMap,flatten,fork,groupBy,groupTuple,ifEmpty,into,join,last,map,max,mean,merge,min,mix,phase,print,println,randomSample,reduce,separate,set,splitCsv,splitFasta,splitFastq,splitText,spread,subscribe,sum,take,tap,toDouble,toFloat,toInteger,toList,toLong,toSortedList,transpose,unique,until,view
+Dec-12 00:07:47.672 [main] DEBUG nextflow.Session - Session uuid: 38dea920-83e4-44c8-b227-873f5567070f
+Dec-12 00:07:47.672 [main] DEBUG nextflow.Session - Run name: furious_galileo
+Dec-12 00:07:47.672 [main] DEBUG nextflow.Session - Executor pool size: 12
+Dec-12 00:07:47.694 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 19.10.0 build 5170
+  Created: 21-10-2019 15:07 UTC (08:07 PDT)
+  System: Mac OS X 10.14.2
+  Runtime: Groovy 2.5.8 on OpenJDK 64-Bit Server VM 1.8.0_121-b15
+  Encoding: UTF-8 (UTF-8)
+  Process: 23976@Genes-Mac-Pro-03.local [192.168.0.189]
+  CPUs: 12 - Mem: 64 GB (15.1 GB) - Swap: 0 (0)
+Dec-12 00:07:47.709 [main] DEBUG nextflow.Session - Work-dir: /Volumes/GSHD15/G4500_workflow/pipelines/work [Mac OS X]
+Dec-12 00:07:47.709 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Volumes/GSHD15/G4500_workflow/pipelines/bin
+Dec-12 00:07:47.723 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Dec-12 00:07:47.725 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Dec-12 00:07:48.074 [main] DEBUG nextflow.Session - Session start invoked
+Dec-12 00:07:48.396 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Dec-12 00:07:48.421 [main] INFO  nextflow.Nextflow - 
+
+====================================================
+GS - G4500_workflow - N F  ~  version n + 1
+====================================================
+REPO_LOCATION                 : /Users/genesolutions/local/repo/resources/G4500_testing_data
+BWA_REPO                      : /Users/genesolutions/local/repo/resources/G4500_testing_data/bwa
+SPECIES                       : hg38_selected
+REF                           : hg38_selected.fa
+TARGET_REPO                   : /Users/genesolutions/local/repo/resources/G4500_testing_data/target_genes
+GENE_PANEL                    : sorted_G4500.targets.hg38.bed.gz
+GENOME_REPO                   : /Users/genesolutions/local/repo/resources/G4500_testing_data/genomes
+VEP_DATA                      : /Users/genesolutions/local/repo/resources/G4500_testing_data
+Rscript_from_anh_DUY          : /Users/genesolutions/local/repo/resources/G4500_testing_data/r_script/vep_filter_EASAF.R
+VERSION                       : 0.3
+INDIR                         : /Volumes/GSHD15/reads
+READS                         : *_R{1,2}_*.fastq.gz
+INPUT_PAIRS                   : /Volumes/GSHD15/reads/*_R{1,2}_*.fastq.gz
+OUTDIR                        : /Volumes/GSHD15/output_testing_20k
+
+Dec-12 00:07:48.456 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /Volumes/GSHD15/reads/; pattern: *_R{1,2}_*.fastq.gz; options: [:]
+Dec-12 00:07:48.617 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:fastqc` matches process fastqc
+Dec-12 00:07:48.620 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.620 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.624 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Dec-12 00:07:48.629 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=12; memory=64 GB; capacity=12; pollInterval=100ms; dumpInterval=5m
+Dec-12 00:07:48.665 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > fastqc -- maxForks: 12
+Dec-12 00:07:48.684 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:trim` matches process trim
+Dec-12 00:07:48.684 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.685 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.685 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > trim -- maxForks: 12
+Dec-12 00:07:48.690 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:align_bwa` matches process align_bwa
+Dec-12 00:07:48.690 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.690 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.692 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > align_bwa -- maxForks: 12
+Dec-12 00:07:48.729 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:picard_SortSam` matches process picard_SortSam
+Dec-12 00:07:48.730 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.730 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.731 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > picard_SortSam -- maxForks: 12
+Dec-12 00:07:48.736 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:bedtools_coverage` matches process bedtools_coverage
+Dec-12 00:07:48.736 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.736 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.737 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > bedtools_coverage -- maxForks: 12
+Dec-12 00:07:48.741 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:picard_MarkDuplicates` matches process picard_MarkDuplicates
+Dec-12 00:07:48.742 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.742 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.743 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > picard_MarkDuplicates -- maxForks: 12
+Dec-12 00:07:48.747 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:strelka` matches process strelka
+Dec-12 00:07:48.747 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.748 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.749 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > strelka -- maxForks: 12
+Dec-12 00:07:48.755 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:vep` matches process vep
+Dec-12 00:07:48.755 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.755 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.756 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > vep -- maxForks: 12
+Dec-12 00:07:48.760 [main] DEBUG nextflow.script.ProcessConfig - Config settings `withName:vep_filter_using_R` matches process vep_filter_using_R
+Dec-12 00:07:48.760 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Dec-12 00:07:48.760 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Dec-12 00:07:48.761 [main] DEBUG nextflow.processor.TaskProcessor - Creating operator > vep_filter_using_R -- maxForks: 12
+Dec-12 00:07:48.763 [main] DEBUG nextflow.script.BaseScript - No entry workflow defined
+Dec-12 00:07:48.764 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Dec-12 00:07:48.764 [main] DEBUG nextflow.Session - Session await
+Dec-12 00:07:48.783 [Actor Thread 4] ERROR nextflow.processor.TaskProcessor - Error executing process > 'fastqc (FASTQC on 47-G1314_S47)'
+
+Caused by:
+  No such property `reads` -- check template file: /Volumes/GSHD15/G4500_workflow/pipelines/templates/fastqc/fastqc.sh
+
+Source block:
+  fastqc --quiet --outdir . ${reads[0]} ${reads[1]}
+
+Tip: you can replicate the issue by changing to the process work dir and entering the command `bash .command.run`
+Dec-12 00:07:48.795 [Actor Thread 4] DEBUG nextflow.Session - Session aborted -- Cause: No such property `reads` -- check template file: /Volumes/GSHD15/G4500_workflow/pipelines/templates/fastqc/fastqc.sh
+Dec-12 00:07:48.812 [Actor Thread 4] DEBUG nextflow.Session - The following nodes are still active:
+[process] fastqc
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] trim
+  status=ACTIVE
+  port 0: (queue) closed; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] align_bwa
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: BWA_REPO_FOLDER
+  port 2: (cntrl) -     ; channel: $
+
+[process] picard_SortSam
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: GENOME_REPO_FOLDER
+  port 2: (cntrl) -     ; channel: $
+
+[process] bedtools_coverage
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: TARGET_REPO_FOLDER
+  port 2: (cntrl) -     ; channel: $
+
+[process] picard_MarkDuplicates
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+[process] strelka
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: BWA_REPO_FOLDER
+  port 2: (value) bound ; channel: TARGET_REPO_FOLDER
+  port 3: (cntrl) -     ; channel: $
+
+[process] vep
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: WORKING_FOLDER
+  port 2: (cntrl) -     ; channel: $
+
+[process] vep_filter_using_R
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (value) bound ; channel: R_SCRIPT
+  port 2: (cntrl) -     ; channel: $
+
+Dec-12 00:07:48.814 [main] DEBUG nextflow.Session - Session await > all process finished
+Dec-12 00:07:48.814 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Dec-12 00:07:48.823 [main] DEBUG nextflow.trace.StatsObserver - Workflow completed > WorkflowStats[succeedCount=0; failedCount=0; ignoredCount=0; cachedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms]
+Dec-12 00:07:49.023 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Dec-12 00:07:49.077 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

@@ -1,0 +1,1 @@
+fastqc --quiet --outdir . ${INPUT_PAIRS[0]} ${INPUT_PAIRS[1]}
