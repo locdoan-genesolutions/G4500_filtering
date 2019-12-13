@@ -194,7 +194,7 @@ process vep {
 
     output:
         tuple sample_id, "${sample_id}_vep98.txt" into vep_ch
-        file "${sample_id}_gnomAD_EAS_AF_0_3_filtered.txt"
+        
 
     script:
         template 'vep/vep.sh'
