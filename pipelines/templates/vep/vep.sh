@@ -7,5 +7,4 @@ vep --fork 4 --verbose --cache \\
 --plugin dbNSFP,${WORKING_FOLDER}/dbNSFP4.0c/dbNSFP4.0c.txt.gz,SIFT4G_pred,LRT_pred,MutationTaster_pred,MutationAssessor_pred,FATHMM_pred,PROVEAN_pred,MetaSVM_pred,MetaLR_pred,M-CAP_pred,PrimateAI_pred,DEOGEN2_pred,Aloft_pred,fathmm-MKL_coding_pred,fathmm-XF_coding_pred \\
 -i ${sample_id}_strelka/results/variants/variants.vcf.gz  \\
 -o ${sample_id}_vep98.txt -offline;
-filter_vep -i ${sample_id}_vep98.txt -o ${sample_id}_gnomAD_EAS_AF_0_3_filtered.txt \\
---filter "gnomAD_EAS_AF > 0.3"
+filter_vep -i ${sample_id}_vep98.txt -o ${sample_id}_gnomAD_EAS_AF_0_3_filtered.txt
